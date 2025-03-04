@@ -1,22 +1,16 @@
 import React from 'react';
 import './App.css';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import { RouterProvider } from 'react-router-dom';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import router from './Router';
-import LanguageSelector from './languageSelector';
-
-// Load Stripe with your publishable key
-const stripePromise = loadStripe('your_stripe_publishable_key');
 
 function App() {
   return (
-    <Elements stripe={stripePromise}>
-      <>
-        <LanguageSelector />
+  
+      <PayPalScriptProvider options={{ "client-id": "ASrRlrRUhXs2o_DJSHg53z0YhQb64OOLbj37UrndbWcdtlfvPs4rZ_aqJs0ZnOXE-fxpxZy1Ea2QyOVL", currency: "THB" }}>
         <RouterProvider router={router} />
-      </>
-    </Elements>
+      </PayPalScriptProvider>
+    
   );
 }
 

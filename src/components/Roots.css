@@ -1,10 +1,9 @@
 /* Roots.css */
 
-.container {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-}
+body {
+    overflow-x: hidden;
+    margin: 0;
+  }
 
 .header {
     position: relative; /* Ensure the parent container is relatively positioned */
@@ -18,11 +17,12 @@
     background-color: #ccc; /* Adjust the color of the line as needed */
     bottom: 15px; /* Move the line up by adjusting the bottom value */
 }
-
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    right: 100%;
+    margin-right: 10px; /* Spacing between links */
 }
 
 
@@ -74,15 +74,13 @@
         flex-direction: column; /* Stack items vertically */
         align-items: flex-start; /* Align items to the start */
     }
-
-    
 }
 
 /* Adjusting nav links for smaller screens */
 @media (max-width: 768px) {
     .nav-links {
         flex-direction: column; /* Stack links vertically */
-        align-items: center; /* Align links to the center */
+        align-items: flex-start; /* Align links to the center */
     }
 
     .nav-link {

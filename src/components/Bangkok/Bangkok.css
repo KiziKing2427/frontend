@@ -1,0 +1,678 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.content-frame {
+  width: 100%; /* Use full width on small screens */
+  max-width: 300px; /* Limit maximum width */
+  max-height: 400px; /* Limit maximum width */
+  margin: 10px auto; /* Center the frame */
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+@media (max-width: 768px) {
+  .container {
+      padding: 10px; /* Reduce padding on small screens */
+  }
+  .content-frame {
+      margin: 5px; /* Reduce margin */
+      max-width: 300px; /* Limit maximum width */
+      max-height: 350px; /* Limit maximum width */
+  }
+}
+
+img {
+  max-width: 100%; /* Ensure images don't overflow */
+  height: auto; /* Maintain aspect ratio */
+}
+/* Responsive Styles for Smaller Devices */
+@media (max-width: 768px) {
+  .content-frame {
+    width: 90%; /* Reduce width to fit smaller screens */
+    padding: 10px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+
+  .descriptionBkk {
+    font-size: 14px; /* Adjust text size for better readability */
+    word-wrap: break-word; /* Ensure long words break to the next line */
+    line-height: 1.4; /* Improve spacing between lines */
+    text-align: center; /* Center-align text for better layout */
+  }
+
+  .places {
+    flex-wrap: wrap; /* Allow content to wrap properly */
+  }
+
+  .places div {
+    font-size: 12px; /* Smaller font for dynamic content */
+    text-align: center;
+    overflow-wrap: break-word; /* Ensure long text breaks within the container */
+  }
+
+  .place-image {
+    max-width: 100%; /* Scale the image to fit within the container */
+    height: auto;
+    border-radius: 5px; /* Slightly less rounded corners */
+  }
+
+  .search-wrapper input {
+    width: 100%; /* Full width for input field */
+    font-size: 14px; /* Smaller font size */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+
+  .heading {
+    font-size: 24px; /* Adjust heading size */
+    margin: 10px 0; /* Reduce margin */
+  }
+}
+
+@media (max-width: 480px) {
+  .content-frame {
+    width: 95%; /* Take up almost full width */
+    padding: 10px;
+    margin: 5px auto; /* Center-align cards */
+    overflow: hidden; /* Prevent content overflow */
+  }
+
+  .descriptionBkk {
+    font-size: 12px; /* Further reduce text size */
+    line-height: 1.2; /* Adjust line spacing */
+    overflow-wrap: anywhere; /* Break long lines wherever needed */
+  }
+
+  .places div {
+    font-size: 11px; /* Reduce size for prices */
+  }
+
+  .place-image {
+    width: 100%; /* Ensure image fits the frame */
+    max-height: 200px; /* Limit height for smaller devices */
+    object-fit: cover; /* Prevent distortion */
+  }
+
+  .heading {
+    font-size: 20px; /* Smaller heading text */
+  }
+
+  .search-wrapper input {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+.section {
+  padding: 20px;
+  overflow: auto; /* Allow scrolling if content overflows */
+}
+.date-label.highlight {
+  color: #202421; /* Change this color code to the desired color */
+}
+
+/* Results Section */
+.results {
+  background-color: white; /* White background for the results area */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  padding: 20px; /* Padding inside the results area */
+  margin-top: 20px; /* Space above the results area */
+}
+
+h4 {
+  color: #333; /* Dark color for headings */
+  margin-bottom: 15px; /* Space below the heading */
+}
+
+/* Selection Details */
+.selection-details {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack items vertically */
+  gap: 5px; /* Space between items */
+}
+
+.detail-item {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space items apart */
+  padding: 5px; /* Padding inside detail items */
+  background-color: #f9f9f9; /* Light background for detail items */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Button Styles */
+.payment-container-button,
+.buttonCheckout {
+  display: flex; /* Use flexbox for button layout */
+  justify-content: center; /* Center button */
+  margin-top: 20px; /* Space above the button */
+}
+
+.pay-now-button,
+.buttonCheckout {
+  padding: 10px 20px; /* Padding for the button */
+  font-size: 16px; /* Button font size */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners for the button */
+  cursor: pointer; /* Cursor pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Button State */
+.buttonCheckout:disabled {
+  background-color: #cccccc; /* Gray out the button when disabled */
+  cursor: not-allowed;
+}
+
+.buttonCheckout:hover:not(:disabled) {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Input and Selection Styles */
+.person-container {
+  display: flex; /* Use flexbox for person containers */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space items apart */
+  margin-bottom: 10px; /* Space below person containers */
+}
+
+.increment-decrement {
+  display: flex; /* Use flexbox for increment/decrement buttons */
+  align-items: center; /* Align items vertically */
+}
+
+.increment-decrement button {
+  width: 30px; /* Set equal width for square shape */
+  height: 30px; /* Set equal height for square shape */
+  font-size: 30px; /* Button font size */
+  margin: 0 5px; /* Space between buttons */
+  display: flex; /* Ensure the content stays centered */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+  width: 100%; /* Full width */
+  max-width: 500px; /* Limit max width */
+  padding: 10px; /* Padding for inputs */
+  margin-bottom: 10px; /* Space below inputs */
+  border: 1px solid #6485a7; /* Border for inputs */
+  border-radius: 5px; /* Rounded corners for inputs */
+  font-size: 16px; /* Font size for inputs */
+}
+
+/* Navbar styles */
+.navbar {
+  margin-bottom: 20px; /* Space below navbar */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  color: #ffffff !important; /* Ensuring brand color is white */
+}
+
+/* Container for the contact form */
+.contact-form {
+  padding: 20px; /* Padding for form */
+  background-color: #f8f9fa; /* Light background for form */
+  border-radius: 8px; /* Rounded corners for form */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for form */
+}
+
+.image-container img {
+  width: 100%; /* Responsive image */
+  max-width: 400px; /* Set a max-width */
+  margin-right: 400px; /* Space between image and text */
+  border-radius: 5px; /* Rounded corners for images */
+  height: auto; /* Maintains the aspect ratio */
+  object-fit: cover; /* Ensures the image covers the container without stretching */
+  margin-right: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .selection-details {
+    flex-direction: column; /* Stack details vertically on small screens */
+  }
+
+  .pay-now-button {
+    font-size: 14px; /* Smaller font size on mobile */
+    padding: 8px 16px; /* Adjust padding on mobile */
+  }
+
+  .image-container {
+    flex-direction: column; /* Stack images vertically on small screens */
+    align-items: center; /* Center align on small screens */
+  }
+
+  .contact-form {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    max-width: 100%; /* Allow full width on small screens */
+  }
+}
+
+/* Additional Media Queries for very small screens */
+@media (max-width: 480px) {
+  h4 {
+    font-size: 18px; /* Smaller heading on mobile */
+  }
+
+  .pay-now-button {
+    width: 100%; /* Full width button on small screens */
+    padding: 12px; /* Larger padding on mobile for better touch targets */
+  }
+
+  .large-image {
+    max-width: 100%; /* Full-width on very small screens */
+  }
+
+  .small-image {
+    width: 30px; /* Further reduce small image size on very small screens */
+    height: 30px; /* Adjust height for small images */
+  }
+}
+
+/* Make the large image responsive */
+.large-image {
+  width: 100%;
+  max-width: 600px; /* Set max-width for large image */
+  height: auto; /* Automatic height */
+  border-radius: 10px; /* Rounded corners for large image */
+}
+
+/* Container for the small images */
+.small-images-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center small images */
+  gap: 1px; /* Space between small images */
+  flex-wrap: wrap; /* Allow wrapping */
+}
+.highlight {
+  background-color: rgb(243, 243, 228); /* Highlight color */
+  font-weight: bold;
+  padding: 5px; /* Add padding for visibility */
+  border-radius: 3px; /* Optional: add rounded corners */
+  text-align: left; /* Align text to the left */
+  font-size: 18px; /* Increase font size (adjust as needed) */
+  margin-bottom: 10px; /* Optional: add some space below the text */
+}
+.content-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  width: 300px; /* Adjust width based on your layout */
+  border: 1px solid #ccc; /* Optional for visual separation */
+  border-radius: 8px; /* Optional for rounded corners */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.place-image {
+  width: 100%; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Adjust max height as needed */
+  object-fit: cover; /* Cover the frame without distortion */
+}
+
+.descriptionBkk {
+  padding: 10px; /* Space between image and text */
+  text-align: center; /* Center text */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Show ellipsis for overflow text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+.form-input {
+  display: block;
+  width: 100%; /* Ensures all inputs take up the full width of their container */
+  margin-bottom: 15px; /* Adds space between each input */
+  box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
+
+.transfers-component {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for better visibility */
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333; /* Darker color for headings */
+}
+
+.transfers-image-container {
+  display: flex;
+  justify-content: center; /* Center the image container */
+  flex-wrap: wrap; /* Allow wrapping of items */
+}
+.imagesTransfers {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap into the next line */
+  justify-content: space-around; /* Space out items evenly */
+}
+
+.image-container-transfers {
+  flex: 1 1 300px; /* Allows the container to grow and shrink, and sets a minimum width */
+  margin: 10px; /* Adds some space between image containers */
+  max-width: 300px; /* Sets a maximum width for each image container */
+  text-align: center; /* Centers the text under the image */
+}
+
+.transfer-image {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 5px; /* Rounded corners */
+  object-fit: cover; /* Ensures the image covers the container without stretching */
+}
+
+.image-descriptionTransfers {
+  margin-top: 10px; /* Space between image and description */
+}
+
+.rating {
+  color: blue; /* Color for the rating stars */
+  font-size: 24px; /* Size of the stars */
+}
+
+.price {
+  color: black; /* Color for the price text */
+}
+/* Responsive Styles for Small Screens */
+@media (max-width: 600px) {
+  .imagesTransfers {
+    flex-direction: column; /* Stack images vertically on small screens */
+    align-items: center; /* Center images */
+  }
+}
+/* Bangkok.css */
+
+.Thailand-Places {
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+h1 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  text-align: center;
+  border: 3px solid #ccc;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.large-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.small-images-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.small-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.small-image:hover {
+  transform: scale(1.1);
+}
+
+.form-container {
+  margin-top: 20px;
+}
+
+input[type="date"],
+select {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 300px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #444;
+}
+
+.description-container {
+  background-color: #f9f9f9; /* Light background color for readability */
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-family: Arial, sans-serif; /* Clean font style */
+  color: #333; /* Dark text color for contrast */
+  line-height: 1.6; /* Comfortable line spacing */
+}
+
+.description-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50; /* Title color */
+  margin-bottom: 10px;
+}
+
+.description-text {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.description-list {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.inclusions-title,
+.exclusions-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #2c3e50;
+}
+
+.inclusions-list,
+.exclusions-list {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.inclusions-list li,
+.exclusions-list li {
+  margin-bottom: 10px;
+}
+
+.optional-info {
+  font-size: 14px;
+  color: #7f8c8d; /* Slightly lighter text for optional information */
+  margin-top: 20px;
+}
+.info-window {
+  font-size: 14px;
+  color: #333;
+  text-align: left; /* Align text to the left */
+}
+
+.info-window h4 {
+  color: #333; /* Darker heading color */
+  font-size: 18px; /* Larger size for headings */
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc; /* Separator below heading */
+  padding-bottom: 5px;
+}
+
+.info-window p {
+  color: #555; /* Soft text color */
+  line-height: 1.6; /* Easier readability */
+  margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.info-window ul {
+  list-style-type: none; /* Remove list dots */
+  padding-left: 0; /* Remove left indent */
+  margin-bottom: 15px;
+}
+
+
+.info-window a {
+  color: #007BFF; /* Standard blue for links */
+  text-decoration: none;
+}
+
+.info-window a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.info-window p:last-child, .info-window ul:last-child {
+  margin-bottom: 0; /* Remove bottom margin for the last element */
+}
+.info-window li {
+  margin-bottom: 10px;
+  text-align: left; /* Align list items to the left */
+}
+
+/* You can adjust this if you want more space between sections */
+.info-window h4:not(:first-of-type) {
+  margin-top: 25px; /* Adds spacing between different sections */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-window {
+      padding: 15px;
+  }
+  .info-window h4 {
+      font-size: 16px;
+  }
+}
+/* Style for the transparent success window */
+.success-window {
+  position: fixed;
+  top: 0;
+  left: 0; /* Ensures it starts from the left edge */
+  right: 0; /* Ensures it extends to the right edge */
+  width: 100%;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0px 4px 8px rgba(231, 225, 225, 0.1); /* Optional: Adds a shadow for visual separation */
+}
+.success-details {
+  color: white; /* This ensures all the text in the <p> is white */
+}
+
+.success-content {
+  display: flex;
+  flex-direction: column; /* Column layout for smaller screens */
+  align-items: center;
+  background-color: rgb(53, 10, 170);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%; /* Use percentage to be more flexible */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  margin: 0 auto; /* Center content horizontally */
+}
+
+/* For larger screens, use a row layout */
+@media (min-width: 768px) {
+  .success-content {
+    flex-direction: row;
+  }
+}
+
+.success-image-container {
+  margin-bottom: 15px; /* Space below image for smaller screens */
+}
+
+.success-image {
+  width: 150px;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* For larger screens, add margin to the right instead of bottom */
+@media (min-width: 768px) {
+  .success-image-container {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+}
+
+.success-text {
+  flex: 1;
+  text-align: center; /* Center align for smaller screens */
+}
+
+/* For larger screens, left-align the text */
+@media (min-width: 768px) {
+  .success-text {
+    text-align: left;
+  }
+}
+
+.go-to-cart-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Button color */
+  color: #080808;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.go-to-cart-button:hover {
+  background-color: #0056b3; /* Hover effect */
+}
+

@@ -12,11 +12,12 @@ i18n
       en: { 
         translation: {
           home: "Home",
-          addProducts: "Add Products",
-          showProducts: "Show Products",
-          createAccount: "Create Account",
+          tours: "Tour",
+          transportation: "Transportation",
+          contactUs: "Contact Us",
+          cart: "Cart",
           logoText: "Ytri Travels",
-          footerText: "@copy; 2024 Ytri Travels. All rights reserved."
+          footerText: "@copy 2024 My Trip Maker. All rights reserved."
         },
       }, 
       fr: {

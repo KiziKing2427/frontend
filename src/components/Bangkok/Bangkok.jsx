@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SearchData from './SearchData';
 import { useTranslation } from 'react-i18next';
+import './Bangkok.css';
 
 const getFilteredItems = (query, items) => {
   if (!query) {
@@ -16,37 +17,48 @@ const Bangkok = () => {
   const { packagesData } = SearchData;
   const { items } = packagesData;
   const filteredItems = getFilteredItems(query, items);
+  const location = useLocation();
 
+  // Save and restore scroll position
   useEffect(() => {
-    // Scroll to the top of the page when component mounts
-    window.scrollTo(0, 0);
-  }, []);
+    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+    
+    // Restore the scroll position if it exists
+    if (savedScrollPosition) {
+      window.scrollTo(0, parseInt(savedScrollPosition, 10));
+    }
+
+    // Save the scroll position before navigating away from the page
+    return () => {
+      sessionStorage.setItem('scrollPosition', window.scrollY);
+    };
+  }, [location.key]); // Use location.key to detect when user navigates away
 
   const renderPlace = (item) => {
     return (
       <div className="content-frame" key={item.id}>
         <Link to={item.link} className="nav-link">
-          <img src={item.image} alt={`Place ${item.id}`} />
+          <img src={item.image} alt={`Place ${item.id}`} className="place-image" />
         </Link>
         <div className="descriptionBkk">
-  <span style={{ color: 'black', fontWeight: 'bold' }}>
-    {item.name.split('\n').map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ))}
-            <div className="places">
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-                <span style={{ color: 'blue', fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>
-                  &#9733; &#9733; &#9733; &#9733; &#9733; {/* 5-star rating */}
-                </span>
-                <span style={{ color: 'black', fontWeight: 'bold' }}>
-                  {item.price}
-                </span>
-              </div>
-            </div>
+          <span style={{ color: 'black', fontWeight: 'bold', textAlign: 'center' }}>
+            {item.name.split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
           </span>
+          <div className="places">
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <span style={{ color: 'blue', fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>
+                &#9733; &#9733; &#9733; &#9733; &#9733; {/* 5-star rating */}
+              </span>
+              <span style={{ color: 'black', fontWeight: 'bold', textAlign: 'center' }}>
+                {item.price}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -58,7 +70,7 @@ const Bangkok = () => {
         <div className="search-wrapper" style={{ cursor: 'pointer' }}>
           <input
             type="text"
-            placeholder={t('Search for a Tour, Hotel or Taxi pickup and other Ytri Travel Packages. . .')}
+            placeholder={t('Search for Packages in Bangkok...')}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

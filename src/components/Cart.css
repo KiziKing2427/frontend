@@ -1,0 +1,204 @@
+/* General Styles */
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item div {
+    flex: 1;
+    min-width: 250px;
+}
+
+.cart-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.cart-item p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.cart-item button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #d00;
+}
+
+.total-amount {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.checkout-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+}
+
+.buttonCheckout {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttonCheckout:hover {
+    background-color: #0056b3;
+}
+
+h4 {
+    background-color: yellow;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For small screens (phones) */
+@media screen and (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cart-item img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .cart-item div {
+        min-width: unset;
+        text-align: center;
+    }
+
+    .checkout-section form {
+        gap: 10px;
+    }
+
+    .form-input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .buttonCheckout {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* For medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+    .cart-item {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .checkout-section {
+        padding: 15px;
+    }
+
+    .form-input {
+        font-size: 15px;
+    }
+
+    .buttonCheckout {
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
+/* For larger screens (desktops) */
+@media screen and (min-width: 1025px) {
+    .cart-item {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .cart-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .checkout-section {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+.payment-container-button {
+    display: flex;
+    gap: 20px; /* Add more space between buttons */
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pay-now-button, .go-to-home-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px; /* Add spacing between buttons */
+    width: 170px; /* Set a fixed width for both buttons */
+  }
+  
+  .go-to-home-button {
+    background-color: #16d31c; /* Green color */
+    color: white;
+  }
+  
+  .pay-now-button {
+    background-color: #008CBA; /* Blue color */
+    color: white;
+  }
+  
